@@ -7,8 +7,9 @@
         <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="updated_on" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="wineDescription" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Wine" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="Wine" positionX="-54" positionY="-9" width="128" height="150"/>
     </elements>
 </model>

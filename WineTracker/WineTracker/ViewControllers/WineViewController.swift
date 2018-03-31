@@ -21,6 +21,7 @@ class WineViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
+    @IBOutlet weak var descriptionTextField: UITextView!
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -49,6 +50,7 @@ class WineViewController: UIViewController {
             nameTextField.text = wine.name
             brandTextField.text = wine.brand
             priceTextField.text = wine.price
+            descriptionTextField.text = wine.wineDescription
             segmentedControl.selectedSegmentIndex = Int(wine.type)
         }
     
@@ -95,11 +97,17 @@ class WineViewController: UIViewController {
             return
         }
         
+        // Verify that description has a value
+        guard let description = descriptionTextField.text, !description.isEmpty else {
+            return
+        }
+        
         // Set values if wine was passed by sender
         if let wine = self.wine {
             wine.name = name
             wine.brand = brand
             wine.price = price
+            wine.wineDescription = description
             wine.updated_on = Date() // Updated updated_on date to be current date
             wine.type = Int16(segmentedControl.selectedSegmentIndex)
         } else {
@@ -108,6 +116,7 @@ class WineViewController: UIViewController {
             wine.name = name
             wine.brand = brand
             wine.price = price
+            wine.wineDescription = description
             wine.type = Int16(segmentedControl.selectedSegmentIndex)
             wine.created_on = Date()
         }
